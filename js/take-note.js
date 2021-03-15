@@ -1,6 +1,6 @@
 function chDarktheme() {
-    var btn_dark = document.getElementById('btn-dark');
-    var btn_light = document.getElementById('btn-light');
+    let btn_dark = document.getElementById('btn-dark');
+    let btn_light = document.getElementById('btn-light');
 
     if (btn_dark) {
         // change color to dark theme
@@ -10,7 +10,7 @@ function chDarktheme() {
 
         // change the button text, id to light theme
         document.querySelector('#btn-dark').textContent = 'Light Theme';
-        document.querySelector('#btn-dark').setAttribute('id', 'btn-light')
+        document.querySelector('#btn-dark').setAttribute('id', 'btn-light');
     }
 
     if (btn_light) {
@@ -21,6 +21,23 @@ function chDarktheme() {
 
         // change the button text, id dark theme
         document.querySelector('#btn-light').textContent = 'Dark Theme';
-        document.querySelector('#btn-light').setAttribute('id', 'btn-dark')
+        document.querySelector('#btn-light').setAttribute('id', 'btn-dark');
+    }
+}
+
+function interactBtn() {
+    let btn_save = document.getElementById('btn-save');
+    let btn_cancel = document.getElementById('btn-cancel');
+    let btn_note = document.getElementById('btn-note');
+    let text_holder = document.getElementById('text-area');
+
+    if (btn_note) {}
+
+    if (btn_save) {
+
+    }
+
+    if (btn_cancel) {
+        text_holder.value = '';
     }
 }
