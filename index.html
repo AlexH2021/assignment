@@ -14,7 +14,7 @@
 
 <body>
     <!-- side bar -->
-    <header>
+    <header id="side-bar">
         <h2>My Notes</h2>
         <ul class="note-list">
             <li>note one</li>
@@ -34,15 +34,15 @@
                     </ul>
                 </nav>
                 <div class="new-note">
-                    <button class="btn-note" type="button">New Note</button>
-                    <button class="dark-theme" type="button">Dark Theme</button>
+                    <button id="btn-note" class="btn-note" type="button">New Note</button>
+                    <button id="btn-dark" class="dark-theme" type="button" onclick="chDarktheme();">Dark Theme</button>
                 </div>
                 <div id="text-contain">
                     <textarea id="text-area" rows="10" placeholder="This is a placeholder"></textarea>
                 </div>
                 <div class="interact-btn">
-                    <button class="btn-save" type="button">Save</button>
-                    <button class="btn-cancel" type="button">Cancel</button>
+                    <button id="btn-save" class="btn-save" type="button">Save</button>
+                    <button id="btn-cancel" class="btn-cancel" type="button">Cancel</button>
                 </div>
             </section>
 
