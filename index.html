@@ -7,23 +7,42 @@
     <title>Take Note</title>
 
     <link rel="stylesheet" href="css/stylesheet.css" rel="stylesheet">
+    <script src="js/take-note.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <!-- side bar -->
     <header>
-        <h1>My Notes</h1>
-        <nav>
-            <ul>
-                <li></li>
-                <li></li>
-            </ul>
-        </nav>
+        <h2>My Notes</h2>
+        <ul class="note-list">
+            <li>note one</li>
+            <li>note two</li>
+        </ul>
     </header>
 
+    <!-- content -->
     <main>
         <section>
+            <h2>Take Better Notes</h2>
+            <nav class="about">
+                <ul class="page-documents">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Docs</a></li>
+                </ul>
+            </nav>
+            <div class="new-note">
+                <button class="btn-note" type="button">New Note</button>
+                <button class="dark-theme" type="button">Dark Theme</button>
+            </div>
+            <div id="text-contain">
+                <textarea id="text-area" rows="10" placeholder="This is a placeholder"></textarea>
+            </div>
+            <div class="interact-btn">
+                <button class="btn-save" type="button">Save</button>
+                <button class="btn-cancel" type="button">Cancel</button>
+            </div>
         </section>
 
         <aside>
@@ -31,7 +50,11 @@
     </main>
 
     <footer>
-        <p>@ACIT-1620 Fundamental WEB technologies</p>
+        <h3>Keep in Touch</h3>
+        <div class="social-footer-icons">
+            <a href="https://www.linkedin.com/" class="linkedin"><img src="images/linkedin_circle_color-512.webp" alt="linkedin"></a>
+            <a href="https://www.instagram.com/?hl=en" class="internet-line"><img src="images/Internet_Line-02-512.webp" alt="internet-line"></a>
+        </div>
     </footer>
 </body>
 
