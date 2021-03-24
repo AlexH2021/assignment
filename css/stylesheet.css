@@ -2,8 +2,6 @@
 
 body {
     font-family: 'Open Sans', sans-serif;
-    background-color: #f2e9de;
-    color: #286983;
 }
 
 
@@ -16,10 +14,6 @@ h2 {
 
 
 /* header, note list */
-
-header {
-    background-color: #faf4ed;
-}
 
 .note-list {
     list-style-type: square;
@@ -84,14 +78,11 @@ header {
     justify-content: space-between;
 }
 
-button {
+button,
+.btn-note {
     border-radius: 10px;
     padding: .8rem;
     border: none;
-}
-
-.dark-theme {
-    background-color: #6e6a86;
 }
 
 .btn-save,
@@ -123,6 +114,38 @@ footer {
 
 footer .social-footer-icons img {
     width: 10%;
+}
+
+
+/* change them to light */
+
+#btn-light {
+    background-color: #6e6a86;
+}
+
+#body-light {
+    background-color: #f2e9de;
+    color: #286983;
+}
+
+#side-bar-light {
+    background-color: #faf4ed;
+}
+
+
+/* change theme to dark */
+
+#btn-dark {
+    background-color: #fffaf3;
+}
+
+#body-dark {
+    background-color: #393552;
+    color: #e0def4;
+}
+
+#side-bar-dark {
+    background-color: #817c9c;
 }
 
 

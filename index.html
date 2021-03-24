@@ -7,14 +7,14 @@
     <title>Take Note</title>
 
     <link rel="stylesheet" href="css/stylesheet.css">
-    <script src="js/take-note.js"></script>
+    <script async src="js/take-note.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body id="body-light">
     <!-- side bar -->
-    <header id="side-bar">
+    <header id="side-bar-light">
         <h2>My Notes</h2>
         <ul class="note-list">
             <li>note one</li>
@@ -34,8 +34,8 @@
                     </ul>
                 </nav>
                 <div class="new-note">
-                    <button id="btn-note" class="btn-note" type="button">New Note</button>
-                    <button id="btn-dark" class="dark-theme" type="button" onclick="chDarktheme();">Dark Theme</button>
+                    <input type="text" id="btn-note" class="btn-note" placeholder="Note title">
+                    <button id="btn-light" class="light-theme" type="button" onclick="chTheme();">Dark Theme</button>
                 </div>
                 <div id="text-contain">
                     <textarea id="text-area" rows="10" placeholder="This is a placeholder"></textarea>
