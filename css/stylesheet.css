@@ -23,6 +23,10 @@ h2 {
     font-weight: 600;
 }
 
+.note-list li a {
+    color: inherit;
+}
+
 
 /* documents section */
 

@@ -1,12 +1,14 @@
-let btn_dark = document.getElementById('btn-dark');
-let btn_light = document.getElementById('btn-light');
 let btn_save = document.getElementById('btn-save');
 let btn_cancel = document.getElementById('btn-cancel');
-let btn_note = document.getElementById('btn-note');
+let note_title = document.getElementById('btn-note');
 let text_holder = document.getElementById('text-area');
+localStorage.clear()
+localStorage.setItem('note-one', 'note one')
+localStorage.setItem('note-two', 'note two')
 
 function chTheme() {
-
+    let btn_dark = document.getElementById('btn-dark');
+    let btn_light = document.getElementById('btn-light');
     if (btn_light) {
         // change theme to dark
         document.querySelector('#btn-light').textContent = 'Light Theme';
@@ -24,15 +26,22 @@ function chTheme() {
     }
 }
 
-function interactBtn() {
+function saveNote() {
+    document.querySelector('#note-list').insertAdjacentHTML(
+        'afterbegin',
+        `<li><a id="` + note_title.value + `" onclick="showNote(this.id);" href="#">` + text_holder.value + `</a></li>`
+    )
+    localStorage.setItem(note_title.value, text_holder.value)
+    clearText()
+}
 
-    if (btn_note) {}
+function clearText() {
+    note_title.value = '';
+    text_holder.value = '';
+}
 
-    if (btn_save) {
-
-    }
-
-    if (btn_cancel) {
-        text_holder.value = '';
-    }
+function showNote(clicked_id) {
+    clearText()
+    note_title.value = localStorage.key(clicked_id);
+    text_holder.innerHTML = localStorage.getItem(clicked_id);
 }
