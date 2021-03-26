@@ -1,6 +1,11 @@
 /* body */
 
+html {
+    height: 100%;
+}
+
 body {
+    height: 100%;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -33,7 +38,6 @@ h2 {
 .container {
     display: flex;
     flex-direction: column;
-    min-height: 99vh;
 }
 
 .about .page-documents {
@@ -162,7 +166,7 @@ footer .social-footer-icons img {
     /* container (note-list and note-area) */
     body {
         display: grid;
-        grid-template-columns: 1fr 3fr;
+        grid-template-columns: 1fr 5fr;
         gap: 1em;
     }
     /* footer icon */
