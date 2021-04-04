@@ -169,7 +169,10 @@ footer .social-footer-icons img {
         grid-template-columns: 1fr 5fr;
         gap: 1em;
     }
-    /* footer icon */
+    /* footer */
+    footer {
+        grid-column: 1/-1;
+    }
     footer .social-footer-icons img {
         width: 5%;
     }

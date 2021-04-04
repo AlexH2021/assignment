@@ -1,5 +1,7 @@
-let btn_save = document.getElementById('btn-save');
-let btn_cancel = document.getElementById('btn-cancel');
+const btn_chTheme = document.querySelector('.ch-theme');
+const btn_cancel = document.querySelector('.btn-cancel');
+const btn_save = document.querySelector('.btn-save');
+
 let note_title = document.getElementById('btn-note');
 let text_holder = document.getElementById('text-area');
 localStorage.clear()
@@ -26,6 +28,11 @@ function chTheme() {
     }
 }
 
+function clearText() {
+    note_title.value = '';
+    text_holder.value = '';
+}
+
 function saveNote() {
     document.querySelector('#note-list').insertAdjacentHTML(
         'afterbegin',
@@ -35,13 +42,13 @@ function saveNote() {
     clearText()
 }
 
-function clearText() {
-    note_title.value = '';
-    text_holder.value = '';
-}
-
 function showNote(clicked_id) {
     clearText()
     note_title.value = localStorage.key(clicked_id);
     text_holder.innerHTML = localStorage.getItem(clicked_id);
 }
+
+// on click
+btn_chTheme.addEventListener('click', chTheme);
+btn_cancel.addEventListener('click', clearText)
+btn_save.addEventListener('click', saveNote)

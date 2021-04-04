@@ -14,13 +14,13 @@
 
 <body id="body-light">
     <!-- side bar -->
-    <header id="side-bar-light">
+    <div id="side-bar-light" class="side-bar">
         <h2>My Notes</h2>
         <ul class="note-list" id="note-list">
-            <li><a id="note-one" onclick="showNote(this.id);" href="#">note one</a></li>
-            <li><a id="note-two" onclick="showNote(this.id);" href="#">note two</a></li>
+            <li><a id="note-one" href="#">note one</a></li>
+            <li><a id="note-two" href="#">note two</a></li>
         </ul>
-    </header>
+    </div>
     <div class="container">
 
         <!-- content -->
@@ -35,30 +35,29 @@
                 </nav>
                 <div class="new-note">
                     <input type="text" id="btn-note" class="btn-note" placeholder="Note title">
-                    <button id="btn-light" class="light-theme" type="button" onclick="chTheme();">Dark Theme</button>
+                    <button id="btn-light" class="ch-theme" type="button">Dark Theme</button>
                 </div>
                 <div id="text-contain">
                     <textarea id="text-area" rows="10" placeholder="This is a placeholder"></textarea>
                 </div>
                 <div class="interact-btn">
-                    <button id="btn-save" class="btn-save" type="button" onclick="saveNote();">Save</button>
-                    <button id="btn-cancel" class="btn-cancel" type="button" onclick="clearText();">Cancel</button>
+                    <button id="btn-save" class="btn-save" type="button">Save</button>
+                    <button id="btn-cancel" class="btn-cancel" type="button">Cancel</button>
                 </div>
             </section>
 
             <aside>
             </aside>
         </main>
-
-        <footer>
-            <h3>Keep in Touch</h3>
-            <div class="social-footer-icons">
-                <a href="https://www.linkedin.com/" class="linkedin"><img src="images/linkedin_circle_color-512.webp" alt="linkedin"></a>
-                <a href="https://www.instagram.com/?hl=en" class="internet-line"><img src="images/Internet_Line-02-512.webp" alt="internet-line"></a>
-            </div>
-        </footer>
     </div>
 
+    <footer>
+        <h3>Keep in Touch</h3>
+        <div class="social-footer-icons">
+            <a href="https://www.linkedin.com/" class="linkedin"><img src="images/linkedin_circle_color-512.webp" alt="linkedin"></a>
+            <a href="https://www.instagram.com/?hl=en" class="internet-line"><img src="images/Internet_Line-02-512.webp" alt="internet-line"></a>
+        </div>
+    </footer>
 </body>
 
 </html>
