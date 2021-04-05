@@ -4,11 +4,13 @@ const btn_cancel = document.querySelector('.btn-cancel');
 const btn_save = document.querySelector('.btn-save');
 const new_note = document.querySelector('.btn-note');
 const text_holder = document.querySelector('#text-area');
+const note_list = document.querySelector('.note-list');
 
 //using local storage to store data
-localStorage.clear()
-localStorage.setItem('note-one', 'note one')
-localStorage.setItem('note-two', 'note two')
+notesArray = [
+    { title: "note one", body: "this is my first note" },
+    { title: 'note two', body: 'this is my second note' }
+];
 
 function chTheme() {
     /* when click change text, class to theme accordingly */
@@ -55,19 +57,31 @@ function clearText() {
 
 function saveNote() {
     /* save note into local storage */
-    document.querySelector('#note-list').insertAdjacentHTML(
-        'afterbegin',
-        `<li><a id="` + new_note.value + `" onclick="showNote(this.id);" href="#">` + text_holder.value + `</a></li>`
-    )
-    localStorage.setItem(new_note.value, text_holder.value)
-    clearText()
+    let value = text_holder.value;
+    if (text_holder.value.trim().length > 0) {
+        // add new note to array
+        let title = prompt('Enter title of the note');
+        notesArray.push({ title, value });
+
+        // create new li, a tags to hold note
+        const newLi = document.createElement('li');
+        const newA = document.createElement('a');
+        const newContent = document.createTextNode(title);
+        newA.appendChild(newContent);
+        newLi.appendChild(newA);
+        new_id_for_a = title.split(' ');
+        title = new_id_for_a.join('-')
+        newA.setAttribute('id', title);
+        newA.setAttribute('href', '#');
+
+        // add new note to note list
+        note_list.appendChild(newLi);
+    }
 }
 
 function displayNote(clicked_id) {
     /* display note into textarea when clicked on note list */
-    clearText()
-    new_note.value = localStorage.key(clicked_id);
-    text_holder.innerHTML = localStorage.getItem(clicked_id);
+
 }
 
 // on click
