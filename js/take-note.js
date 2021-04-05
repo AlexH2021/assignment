@@ -5,6 +5,7 @@ const btn_save = document.querySelector('.btn-save');
 const new_note = document.querySelector('.btn-note');
 const text_holder = document.querySelector('#text-area');
 const note_list = document.querySelector('.note-list');
+const array_list = document.querySelectorAll('.note-list li a');
 
 //using local storage to store data
 notesArray = [
@@ -61,6 +62,9 @@ function saveNote() {
     if (text_holder.value.trim().length > 0) {
         // add new note to array
         let title = prompt('Enter title of the note');
+        if (title === null) {
+            return; //break out of the function early
+        }
         notesArray.push({ title, value });
 
         // create new li, a tags to hold note
@@ -69,6 +73,8 @@ function saveNote() {
         const newContent = document.createTextNode(title);
         newA.appendChild(newContent);
         newLi.appendChild(newA);
+
+        // separate title and transform and add to id
         new_id_for_a = title.split(' ');
         title = new_id_for_a.join('-')
         newA.setAttribute('id', title);
@@ -79,9 +85,15 @@ function saveNote() {
     }
 }
 
-function displayNote(clicked_id) {
-    /* display note into textarea when clicked on note list */
+function checkIndex(event) {
+    console.log(Array.from(array_list).indexOf(event.target));
+}
 
+function displayNote() {
+    /* display note into textarea when clicked on note list */
+    array_list.forEach(function(array_list) {
+            array_list.addEventListener('click', checkIndex);
+        }) // fix me, items added not return value
 }
 
 // on click
@@ -89,3 +101,4 @@ btn_chTheme.addEventListener('click', chTheme);
 btn_cancel.addEventListener('click', hideNote);
 new_note.addEventListener('click', showNote);
 btn_save.addEventListener('click', saveNote);
+displayNote();
