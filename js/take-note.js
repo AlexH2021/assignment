@@ -5,7 +5,7 @@ const btn_save = document.querySelector('.btn-save');
 const new_note = document.querySelector('.btn-note');
 const text_holder = document.querySelector('#text-area');
 const note_list = document.querySelector('.note-list');
-const array_list = document.querySelectorAll('.note-list li a');
+const list_array = document.querySelectorAll('.note-list a');
 
 //using local storage to store data
 notesArray = [
@@ -58,14 +58,15 @@ function clearText() {
 
 function saveNote() {
     /* save note into local storage */
-    let value = text_holder.value;
-    if (text_holder.value.trim().length > 0) {
+    let body = text_holder.value;
+
+    if (body.trim().length > 0) {
         // add new note to array
         let title = prompt('Enter title of the note');
         if (title === null) {
             return; //break out of the function early
         }
-        notesArray.push({ title, value });
+        notesArray.push({ title, body });
 
         // create new li, a tags to hold note
         const newLi = document.createElement('li');
@@ -85,15 +86,27 @@ function saveNote() {
     }
 }
 
-function checkIndex(event) {
-    console.log(Array.from(array_list).indexOf(event.target));
+function editNote(value) {
+    //edit note
+    // let body = text_holder.value;
+
+    // for (let item of notesArray) {
+    //     if (item.title === body.trim()) {
+    //         notesArray[item].body = body;
+    //         title = item.title;
+    //         return;
+    //     }
+    // }
 }
 
-function displayNote() {
+function displayNote(e) {
     /* display note into textarea when clicked on note list */
-    array_list.forEach(function(array_list) {
-            array_list.addEventListener('click', checkIndex);
-        }) // fix me, items added not return value
+    for (let item of notesArray) {
+        if (item.title === e.target.innerText) {
+            text_holder.value = item.body;
+            console.log(item.title)
+        }
+    }
 }
 
 // on click
@@ -101,4 +114,4 @@ btn_chTheme.addEventListener('click', chTheme);
 btn_cancel.addEventListener('click', hideNote);
 new_note.addEventListener('click', showNote);
 btn_save.addEventListener('click', saveNote);
-displayNote();
+note_list.addEventListener('click', displayNote);
