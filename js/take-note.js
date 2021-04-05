@@ -1,14 +1,18 @@
+// define button
 const btn_chTheme = document.querySelector('.ch-theme');
 const btn_cancel = document.querySelector('.btn-cancel');
 const btn_save = document.querySelector('.btn-save');
+const new_note = document.querySelector('.btn-note');
+const text_holder = document.querySelector('#text-area');
 
-let note_title = document.getElementById('btn-note');
-let text_holder = document.getElementById('text-area');
+//using local storage to store data
 localStorage.clear()
 localStorage.setItem('note-one', 'note one')
 localStorage.setItem('note-two', 'note two')
 
 function chTheme() {
+    /* when click change text, class to theme accordingly */
+    // define theme button
     let btn_dark = document.getElementById('btn-dark');
     let btn_light = document.getElementById('btn-light');
     if (btn_light) {
@@ -28,27 +32,46 @@ function chTheme() {
     }
 }
 
+function hideNote() {
+    /* hide the text area, save, and cancel buttons */
+    text_holder.classList.toggle("hide");
+    btn_save.classList.toggle("hide");
+    btn_cancel.classList.toggle("hide");
+}
+
+function showNote() {
+    if (text_holder.classList.contains('hide')) {
+        text_holder.classList.toggle("hide");
+        btn_save.classList.toggle("hide");
+        btn_cancel.classList.toggle("hide");
+    } else {
+        clearText();
+    }
+}
+
 function clearText() {
-    note_title.value = '';
     text_holder.value = '';
 }
 
 function saveNote() {
+    /* save note into local storage */
     document.querySelector('#note-list').insertAdjacentHTML(
         'afterbegin',
-        `<li><a id="` + note_title.value + `" onclick="showNote(this.id);" href="#">` + text_holder.value + `</a></li>`
+        `<li><a id="` + new_note.value + `" onclick="showNote(this.id);" href="#">` + text_holder.value + `</a></li>`
     )
-    localStorage.setItem(note_title.value, text_holder.value)
+    localStorage.setItem(new_note.value, text_holder.value)
     clearText()
 }
 
-function showNote(clicked_id) {
+function displayNote(clicked_id) {
+    /* display note into textarea when clicked on note list */
     clearText()
-    note_title.value = localStorage.key(clicked_id);
+    new_note.value = localStorage.key(clicked_id);
     text_holder.innerHTML = localStorage.getItem(clicked_id);
 }
 
 // on click
 btn_chTheme.addEventListener('click', chTheme);
-btn_cancel.addEventListener('click', clearText)
-btn_save.addEventListener('click', saveNote)
+btn_cancel.addEventListener('click', hideNote);
+new_note.addEventListener('click', showNote);
+btn_save.addEventListener('click', saveNote);

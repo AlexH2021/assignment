@@ -166,6 +166,20 @@ footer .social-footer-icons img {
 }
 
 
+/* cancel button click --> hide buttons and text area */
+
+.hide {
+    display: none;
+}
+
+
+/* new note button click --> show all buttons and textarea */
+
+.show {
+    display: block;
+}
+
+
 /* media query */
 
 
@@ -189,7 +203,6 @@ footer .social-footer-icons img {
         order: 2;
     }
     /* footer */
-    footer {}
     footer .social-footer-icons img {
         width: 5%;
     }
