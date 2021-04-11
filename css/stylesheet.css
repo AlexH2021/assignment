@@ -204,8 +204,6 @@ footer .social-footer-icons img {
     /* footer */
     footer .social-footer-icons img {
         width: 5vw;
-        grid-column: 2;
-        grid-row: 2;
     }
 }
 

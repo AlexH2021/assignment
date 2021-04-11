@@ -20,8 +20,8 @@ function chTheme() {
     let btn_light = document.getElementById('btn-light');
     if (btn_light) {
         // change theme to dark
-        document.querySelector('#btn-light').textContent = 'Light Theme';
-        document.querySelector('#btn-light').setAttribute('id', 'btn-dark');
+        btn_light.textContent = 'Light Theme';
+        btn_light.setAttribute('id', 'btn-dark');
         document.querySelector('#body-light').setAttribute('id', 'body-dark');
         document.querySelector('#side-bar-light').setAttribute('id', 'side-bar-dark');
     }
@@ -56,33 +56,45 @@ function clearText() {
     text_holder.value = '';
 }
 
+function promptUser() {
+    let title = prompt('Enter title of the note');
+
+    return title;
+}
+
 function saveNote() {
     /* save note into local storage */
     let body = text_holder.value;
 
     if (body.trim().length > 0) {
         // add new note to array
-        let title = prompt('Enter title of the note');
+        let title = promptUser()
         if (title === null) {
             return; //break out of the function early
         }
-        notesArray.push({ title, body });
 
-        // create new li, a tags to hold note
-        const newLi = document.createElement('li');
-        const newA = document.createElement('a');
-        const newContent = document.createTextNode(title);
-        newA.appendChild(newContent);
-        newLi.appendChild(newA);
+        // if title already exist
+        if (notesArray.find(item => item.title === title)) {
+            alert('Title already exist!')
+        } else {
+            notesArray.push({ title, body });
 
-        // separate title and transform and add to id
-        new_id_for_a = title.split(' ');
-        title = new_id_for_a.join('-')
-        newA.setAttribute('id', title);
-        newA.setAttribute('href', '#');
+            // create new li, a tags to hold note
+            const newLi = document.createElement('li');
+            const newA = document.createElement('a');
+            const newContent = document.createTextNode(title);
+            newA.appendChild(newContent);
+            newLi.appendChild(newA);
 
-        // add new note to note list
-        note_list.appendChild(newLi);
+            // separate title and transform and add to id
+            new_id_for_a = title.split(' ');
+            title = new_id_for_a.join('-')
+            newA.setAttribute('id', title);
+            newA.setAttribute('href', '#');
+
+            // add new note to note list
+            note_list.appendChild(newLi);
+        }
     }
 }
 
@@ -104,7 +116,7 @@ function displayNote(e) {
     for (let item of notesArray) {
         if (item.title === e.target.innerText) {
             text_holder.value = item.body;
-            console.log(item.title)
+            break;
         }
     }
 }
