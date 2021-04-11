@@ -133,35 +133,35 @@ footer .social-footer-icons img {
 }
 
 
-/* change them to light */
-
-#btn-light {
-    background-color: #6e6a86;
-}
-
-#body-light {
-    background-color: #f2e9de;
-    color: #286983;
-}
-
-#side-bar-light {
-    background-color: #faf4ed;
-}
-
-
 /* change theme to dark */
 
-#btn-dark {
+.btn-dark {
     background-color: #fffaf3;
 }
 
-#body-dark {
+.body-dark {
     background-color: #393552;
     color: #e0def4;
 }
 
-#side-bar-dark {
+.side-bar-dark {
     background-color: #817c9c;
+}
+
+
+/* change them to light */
+
+.btn-light {
+    background-color: #6e6a86;
+}
+
+.body-light {
+    background-color: #f2e9de;
+    color: #286983;
+}
+
+.side-bar-light {
+    background-color: #faf4ed;
 }
 
 

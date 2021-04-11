@@ -6,6 +6,8 @@ const new_note = document.querySelector('.btn-note');
 const text_holder = document.querySelector('#text-area');
 const note_list = document.querySelector('.note-list');
 const list_array = document.querySelectorAll('.note-list a');
+const body_theme = document.querySelector('.body-theme');
+const side_bar = document.querySelector('.side-bar');
 
 //using local storage to store data
 notesArray = [
@@ -16,22 +18,18 @@ notesArray = [
 function chTheme() {
     /* when click change text, class to theme accordingly */
     // define theme button
-    let btn_dark = document.getElementById('btn-dark');
-    let btn_light = document.getElementById('btn-light');
-    if (btn_light) {
+    if (btn_chTheme.textContent === 'Light Theme') {
         // change theme to dark
-        btn_light.textContent = 'Light Theme';
-        btn_light.setAttribute('id', 'btn-dark');
-        document.querySelector('#body-light').setAttribute('id', 'body-dark');
-        document.querySelector('#side-bar-light').setAttribute('id', 'side-bar-dark');
-    }
-
-    if (btn_dark) {
+        btn_chTheme.textContent = 'Dark Theme';
+        btn_chTheme.classList.toggle('btn-light');
+        body_theme.classList.toggle('body-light');
+        side_bar.classList.toggle('side-bar-light')
+    } else {
         // change theme to light
-        document.querySelector('#btn-dark').textContent = 'Dark Theme';
-        document.querySelector('#btn-dark').setAttribute('id', 'btn-light');
-        document.querySelector('#body-dark').setAttribute('id', 'body-light');
-        document.querySelector('#side-bar-dark').setAttribute('id', 'side-bar-light');
+        btn_chTheme.textContent = 'Light Theme';
+        btn_chTheme.classList.toggle('btn-light');
+        body_theme.classList.toggle('body-light');
+        side_bar.classList.toggle('side-bar-light')
     }
 }
 
